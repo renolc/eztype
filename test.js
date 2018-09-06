@@ -75,12 +75,9 @@ assert.equal(check({ a: 0 }, { a: NEQQ(1, Int) }), true)
 assert.equal(check({ a: 1 }, { a: NEQQ(1, Int) }), false)
 assert.equal(check({ a: '' }, { a: NEQQ(1, Int) }), false)
 
-assert.equal(check({ a: [] }, { a: Arr(Or(Int, Str)) }), true)
-assert.equal(check({ a: [1,2,3] }, { a: Arr(Or(Int, Str)) }), true)
-assert.equal(check({ a: ['1','2','3'] }, { a: Arr(Or(Int, Str)) }), true)
-assert.equal(check({ a: [1,'2',3] }, { a: Arr(Or(Int, Str)) }), true)
-assert.equal(check({ a: [1,true,3] }, { a: Arr(Or(Int, Str)) }), false)
-assert.equal(check({ a: '' }, { a: Arr(Or(Int, Str)) }), false)
+assert.equal(check({ a: 1 }, { a: Or(Int, Str) }), true)
+assert.equal(check({ a: '1' }, { a: Or(Int, Str) }), true)
+assert.equal(check({ a: true }, { a: Or(Int, Str) }), false)
 
 // optional property
 assert.equal(check({}, { a: Optional(Int) }), true)
