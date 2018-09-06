@@ -1,0 +1,27 @@
+{
+  "name": "genre",
+  "version": "1.0.0",
+  "description": "Object template declaration and runtime type checking",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renolc/genre.git"
+  },
+  "keywords": [
+    "object",
+    "template",
+    "templating",
+    "type",
+    "checking",
+    "runtime"
+  ],
+  "author": "Phillip Gibson <gibson.phillip.j@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renolc/genre/issues"
+  },
+  "homepage": "https://github.com/renolc/genre#readme"
+}

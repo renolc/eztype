@@ -1,0 +1,1 @@
+module.exports = (obj, template) => Object.keys(template).every(key => template[key](obj[key]))
