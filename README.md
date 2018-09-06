@@ -64,8 +64,8 @@ Here is a list of all predefined types `genre` includes:
 | `LTE(n, <type>)` | is value a `<type>` that is <= `n` |
 | `EQ(n, <type>)` | is value a `<type>` that is == `n` |
 | `EQQ(n, <type>)` | is value a `<type>` that is === `n` |
-| `NEQ(n, <type>)` | is value a `<type>` that is == `n` |
-| `NEQQ(n, <type>)` | is value a `<type>` that is === `n` |
+| `NEQ(n, <type>)` | is value a `<type>` that is != `n` |
+| `NEQQ(n, <type>)` | is value a `<type>` that is !== `n` |
 | `Or(<type1>, <type2>)` | is value a `<type1>` or `<type2>` |
 | `Optional(<type>)` | make field optional (validates to true if `null` or `undefined`) |
 
