@@ -1,12 +1,19 @@
 const assert = require('assert')
 const check = require('./index')
 const {
+  Any,
   Str, Num, Bool,
   Int, Float,
   Arr, Obj, Dat, Fun,
   GT, GTE, LT, LTE, EQ, EQQ, NEQ, NEQQ, Or,
   Optional
 } = require('./types')
+
+// any
+assert.equal(check({ a: '' }, { a: Any }), true)
+assert.equal(check({ a: 0 }, { a: Any }), true)
+assert.equal(check({ a: false }, { a: Any }), true)
+assert.equal(check({}, { a: Any }), false)
 
 // primitives
 assert.equal(check({ a: '' }, { a: Str }), true)

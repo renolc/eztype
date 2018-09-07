@@ -49,6 +49,7 @@ Here is a list of all predefined types `genre` includes:
 
 | Name | Description |
 | --- | --- |
+| `Any` | any non-null value |
 | `Str` | is value a `String` |
 | `Num` | is value a `Number` |
 | `Bool` | is value a `Boolean` |

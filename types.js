@@ -1,6 +1,9 @@
 const check = require('./index')
 
 module.exports = {
+  // literally anything
+  Any: i => i != null,
+
   // primitives
   Str: i => i != null && (i).constructor === String,
   Num: i => i != null && (i).constructor === Number,
