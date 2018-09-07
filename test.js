@@ -90,6 +90,11 @@ assert.equal(check({ a: '' }, { a: Not(Int) }), true)
 assert.equal(check({ a: 2.1 }, { a: Not(Int) }), true)
 assert.equal(check({ a: 2 }, { a: Not(Int) }), false)
 
+assert.equal(check({ a: false }, { a: Not(Int, Str) }), true)
+assert.equal(check({ a: 2.1 }, { a: Not(Int, Str) }), true)
+assert.equal(check({ a: 2 }, { a: Not(Int, Str) }), false)
+assert.equal(check({ a: '2' }, { a: Not(Int, Str) }), false)
+
 // optional property
 assert.equal(check({}, { a: Optional(Int) }), true)
 assert.equal(check({ a: 0 }, { a: Optional(Int) }), true)

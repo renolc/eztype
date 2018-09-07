@@ -28,8 +28,8 @@ module.exports = {
   EQQ: (n, type) => i => type(i) && i === n,
   NEQ: (n, type) => i => type(i) && i != n,
   NEQQ: (n, type) => i => type(i) && i !== n,
-  Or: (t1, t2) => i => t1(i) || t2(i),
-  Not: type => i => i != null && !type(i),
+  Or: (...types) => i => types.some(t => t(i)),
+  Not: (...types) => i => i != null && types.every(t => !t(i)),
 
   // optional property
   Optional: type => i => i == null || type(i)
