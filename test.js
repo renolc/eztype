@@ -1,7 +1,7 @@
 const assert = require('assert')
 const check = require('./index')
 const {
-  Any,
+  Any, Not,
   Str, Num, Bool,
   Int, Float,
   Arr, Obj, Dat, Fun,
@@ -85,6 +85,10 @@ assert.equal(check({ a: '' }, { a: NEQQ(1, Int) }), false)
 assert.equal(check({ a: 1 }, { a: Or(Int, Str) }), true)
 assert.equal(check({ a: '1' }, { a: Or(Int, Str) }), true)
 assert.equal(check({ a: true }, { a: Or(Int, Str) }), false)
+
+assert.equal(check({ a: '' }, { a: Not(Int) }), true)
+assert.equal(check({ a: 2.1 }, { a: Not(Int) }), true)
+assert.equal(check({ a: 2 }, { a: Not(Int) }), false)
 
 // optional property
 assert.equal(check({}, { a: Optional(Int) }), true)

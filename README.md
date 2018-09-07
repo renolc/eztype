@@ -55,20 +55,21 @@ Here is a list of all predefined types `genre` includes:
 | `Bool` | is value a `Boolean` |
 | `Int` | is value an integer |
 | `Float` | is value a float |
-| `Arr(<type>)` | is value an array of `<type>` |
-| `Obj(<template>)` | does value match the provided `template` |
+| `Arr(T)` | is value an array of type `T` |
+| `Obj(template)` | does value match the provided `template` |
 | `Dat` | is value a `Date` |
 | `Fun` | is value a `Function` |
-| `GT(n, <type>)` | is value a `<type>` that is > `n` |
-| `GTE(n, <type>)` | is value a `<type>` that is >= `n` |
-| `LT(n, <type>)` | is value a `<type>` that is < `n` |
-| `LTE(n, <type>)` | is value a `<type>` that is <= `n` |
-| `EQ(n, <type>)` | is value a `<type>` that is == `n` |
-| `EQQ(n, <type>)` | is value a `<type>` that is === `n` |
-| `NEQ(n, <type>)` | is value a `<type>` that is != `n` |
-| `NEQQ(n, <type>)` | is value a `<type>` that is !== `n` |
-| `Or(<type1>, <type2>)` | is value a `<type1>` or `<type2>` |
-| `Optional(<type>)` | make field optional (validates to true if `null` or `undefined`) |
+| `GT(n, T)` | is value of type `T` and > `n` |
+| `GTE(n, T)` | is value of type `T` and >= `n` |
+| `LT(n, T)` | is value of type `T` and < `n` |
+| `LTE(n, T)` | is value of type `T` and <= `n` |
+| `EQ(n, T)` | is value of type `T` and == `n` |
+| `EQQ(n, T)` | is value of type `T` and === `n` |
+| `NEQ(n, T)` | is value of type `T` and != `n` |
+| `NEQQ(n, T)` | is value of type `T` and !== `n` |
+| `Or(T1, T2)` | is value of type `T1` or `T2` |
+| `Not(T)` | is value of any type other than `T` |
+| `Optional(T)` | make field optional (validates to true if `null` or `undefined`) |
 
 ## Advanced Types
 

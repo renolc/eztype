@@ -29,6 +29,7 @@ module.exports = {
   NEQ: (n, type) => i => type(i) && i != n,
   NEQQ: (n, type) => i => type(i) && i !== n,
   Or: (t1, t2) => i => t1(i) || t2(i),
+  Not: type => i => i != null && !type(i),
 
   // optional property
   Optional: type => i => i == null || type(i)
