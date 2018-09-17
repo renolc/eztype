@@ -1,11 +1,11 @@
 const assert = require('assert')
 const check = require('./index')
 const {
-  Any, Not,
+  Any,
   Str, Num, Bool,
   Int, Float,
-  Arr, Obj, Dat, Fun,
-  GT, GTE, LT, LTE, EQ, EQQ, NEQ, NEQQ, Or,
+  Arr, Obj, Hash, Dat, Fun,
+  GT, GTE, LT, LTE, EQ, EQQ, NEQ, NEQQ, Or, Not,
   Optional
 } = require('./types')
 
@@ -42,6 +42,10 @@ assert.equal(check({ a: {} }, { a: Obj({}) }), true)
 assert.equal(check({ a: { b: 0 }}, { a: Obj({ b: Int }) }), true)
 assert.equal(check({ a: '' }, { a: Obj({}) }), false)
 assert.equal(check({ a: {} }, { a: Obj({ b: Int }) }), false)
+
+assert.equal(check({ a: {} }, { a: Hash }), true)
+assert.equal(check({ a: { b: 0 }}, { a: Hash }), true)
+assert.equal(check({ a: '' }, { a: Hash }), false)
 
 assert.equal(check({ a: new Date() }, { a: Dat }), true)
 assert.equal(check({ a: '' }, { a: Dat }), false)

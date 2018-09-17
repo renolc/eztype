@@ -16,6 +16,7 @@ module.exports = {
   // complex types
   Arr: type => i => Array.isArray(i) && i.every(type),
   Obj: o => i => i != null && (i).constructor === Object && check(i, o),
+  Hash: i => i != null && (i).constructor === Object,
   Dat: i => i != null && (i).constructor === Date,
   Fun: i => i != null && (i).constructor === Function,
 
