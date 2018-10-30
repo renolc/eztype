@@ -15,7 +15,7 @@ const Int = Number.isInteger
 const Float = i => Num(i) && !Number.isInteger(i)
 
 // composite types
-const Arr = (type) => i => Array.isArray(i) && i.every(type)
+const Arr = (type = Any) => i => Array.isArray(i) && i.every(type)
 const Obj = template => i => Any(i) && (i).constructor === Object && (template == null || check(i, template))
 
 // comparative types
