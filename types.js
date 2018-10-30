@@ -31,6 +31,7 @@ module.exports = {
   NEQQ: (n, type) => i => type(i) && i !== n,
   Or: (...types) => i => types.some(t => t(i)),
   Not: (...types) => i => i != null && types.every(t => !t(i)),
+  Enum: (...values) => i => values.includes(i),
 
   // optional property
   Optional: type => i => i == null || type(i)

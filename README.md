@@ -70,6 +70,7 @@ Here is a list of all predefined types `genre` includes:
 | `NEQQ(n, T)` | is value of type `T` and !== `n` |
 | `Or(...T)` | is value of any provided type |
 | `Not(...T)` | is value of any type other than those provided |
+| `Enum(...values)` | is value included in list of `values` |
 | `Optional(T)` | make field optional (validates to true if `null` or `undefined`) |
 
 ## Advanced Types
