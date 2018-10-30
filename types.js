@@ -16,7 +16,7 @@ const Int = Number.isInteger
 const Float = i => Num(i) && !Number.isInteger(i)
 
 // complex types
-const Arr = type => i => Array.isArray(i) && i.every(type)
+const Arr = (type = Any) => i => Array.isArray(i) && i.every(type)
 const Obj = o => i => Any(i) && (i).constructor === Object && check(i, o)
 
 // comparative types
