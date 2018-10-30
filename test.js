@@ -33,10 +33,11 @@ assert.equal(check({ a: 2.1 }, { a: Float }), true)
 assert.equal(check({ a: 2 }, { a: Float }), false)
 
 // complex types
-assert.equal(check({ a: [] }, { a: Arr(Int) }), true)
-assert.equal(check({ a: [1,2,3] }, { a: Arr(Int) }), true)
-assert.equal(check({ a: '' }, { a: Arr(Int) }), false)
+assert.equal(check({ a: [] }, { a: Arr() }), true)
+assert.equal(check({ a: [1,2,3] }, { a: Arr() }), true)
+assert.equal(check({ a: [1,'2',3] }, { a: Arr() }), true)
 assert.equal(check({ a: [1,'2',3] }, { a: Arr(Int) }), false)
+assert.equal(check({ a: '' }, { a: Arr() }), false)
 
 assert.equal(check({ a: {} }, { a: Obj({}) }), true)
 assert.equal(check({ a: { b: 0 }}, { a: Obj({ b: Int }) }), true)

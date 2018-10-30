@@ -55,7 +55,7 @@ Here is a list of all predefined types `genre` includes:
 | `Bool` | is value a `Boolean` |
 | `Int` | is value an integer |
 | `Float` | is value a float |
-| `Arr(T)` | is value an array of type `T` |
+| `Arr(T)` | is value an array of type `T` (`T` default to `Any`) |
 | `Obj(template)` | does value match the provided `template` |
 | `Hash` | is value a hash (object with arbitrary key/values) |
 | `Dat` | is value a `Date` |
