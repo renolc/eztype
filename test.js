@@ -5,7 +5,7 @@ const {
   Str, Num, Bool,
   Int, Float,
   Arr, Obj, Hash, Dat, Fun,
-  GT, GTE, LT, LTE, EQ, EQQ, NEQ, NEQQ, Or, Not,
+  GT, GTE, LT, LTE, EQ, EQQ, NEQ, NEQQ, Or, Not, Enum,
   Optional
 } = require('./types')
 
@@ -98,6 +98,11 @@ assert.equal(check({ a: false }, { a: Not(Int, Str) }), true)
 assert.equal(check({ a: 2.1 }, { a: Not(Int, Str) }), true)
 assert.equal(check({ a: 2 }, { a: Not(Int, Str) }), false)
 assert.equal(check({ a: '2' }, { a: Not(Int, Str) }), false)
+
+assert.equal(check({ a: 'bork' }, { a: Enum('bork', 'blarg') }), true)
+assert.equal(check({ a: 'blarg' }, { a: Enum('bork', 'blarg') }), true)
+assert.equal(check({ a: 'broke' }, { a: Enum('bork', 'blarg') }), false)
+assert.equal(check({ a: 0 }, { a: Enum('bork', 'blarg') }), false)
 
 // optional property
 assert.equal(check({}, { a: Optional(Int) }), true)
