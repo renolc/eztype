@@ -7,7 +7,6 @@ const Any = i => i != null
 const Str = i => Any(i) && (i).constructor === String
 const Num = i => Any(i) && (i).constructor === Number
 const Bool = i => Any(i) && (i).constructor === Boolean
-const Hash = i => Any(i) && (i).constructor === Object
 const Dat = i => Any(i) && (i).constructor === Date
 const Fun = i => Any(i) && (i).constructor === Function
 
@@ -15,9 +14,9 @@ const Fun = i => Any(i) && (i).constructor === Function
 const Int = Number.isInteger
 const Float = i => Num(i) && !Number.isInteger(i)
 
-// complex types
-const Arr = type => i => Array.isArray(i) && i.every(type)
-const Obj = o => i => Any(i) && (i).constructor === Object && check(i, o)
+// composite types
+const Arr = (type) => i => Array.isArray(i) && i.every(type)
+const Obj = template => i => Any(i) && (i).constructor === Object && (template == null || check(i, template))
 
 // comparative types
 const GT = (n, type) => i => type(i) && i > n
@@ -37,7 +36,7 @@ const Optional = type => i => i == null || type(i)
 
 module.exports = {
   Any,
-  Str, Num, Bool, Hash, Dat, Fun,
+  Str, Num, Bool, Dat, Fun,
   Int, Float,
   Arr, Obj,
   GT, GTE, LT, LTE, EQ, EQQ, NEQ, NEQQ, Or, Not, Enum,

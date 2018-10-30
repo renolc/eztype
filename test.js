@@ -4,7 +4,7 @@ const {
   Any,
   Str, Num, Bool,
   Int, Float,
-  Arr, Obj, Hash, Dat, Fun,
+  Arr, Obj, Dat, Fun,
   GT, GTE, LT, LTE, EQ, EQQ, NEQ, NEQQ, Or, Not, Enum,
   Optional
 } = require('./types')
@@ -25,6 +25,12 @@ assert.equal(check({ a: false }, { a: Num }), false)
 assert.equal(check({ a: true }, { a: Bool }), true)
 assert.equal(check({ a: '' }, { a: Bool }), false)
 
+assert.equal(check({ a: new Date() }, { a: Dat }), true)
+assert.equal(check({ a: '' }, { a: Dat }), false)
+
+assert.equal(check({ a: ()=>{} }, { a: Fun }), true)
+assert.equal(check({ a: '' }, { a: Fun }), false)
+
 // number types
 assert.equal(check({ a: 2 }, { a: Int }), true)
 assert.equal(check({ a: 2.1 }, { a: Int }), false)
@@ -32,26 +38,20 @@ assert.equal(check({ a: 2.1 }, { a: Int }), false)
 assert.equal(check({ a: 2.1 }, { a: Float }), true)
 assert.equal(check({ a: 2 }, { a: Float }), false)
 
-// complex types
+// composite types
 assert.equal(check({ a: [] }, { a: Arr(Int) }), true)
 assert.equal(check({ a: [1,2,3] }, { a: Arr(Int) }), true)
 assert.equal(check({ a: '' }, { a: Arr(Int) }), false)
 assert.equal(check({ a: [1,'2',3] }, { a: Arr(Int) }), false)
 
+assert.equal(check({ a: {} }, { a: Obj() }), true)
+assert.equal(check({ a: { b: 0 }}, { a: Obj() }), true)
+assert.equal(check({ a: '' }, { a: Obj() }), false)
+
 assert.equal(check({ a: {} }, { a: Obj({}) }), true)
 assert.equal(check({ a: { b: 0 }}, { a: Obj({ b: Int }) }), true)
 assert.equal(check({ a: '' }, { a: Obj({}) }), false)
 assert.equal(check({ a: {} }, { a: Obj({ b: Int }) }), false)
-
-assert.equal(check({ a: {} }, { a: Hash }), true)
-assert.equal(check({ a: { b: 0 }}, { a: Hash }), true)
-assert.equal(check({ a: '' }, { a: Hash }), false)
-
-assert.equal(check({ a: new Date() }, { a: Dat }), true)
-assert.equal(check({ a: '' }, { a: Dat }), false)
-
-assert.equal(check({ a: ()=>{} }, { a: Fun }), true)
-assert.equal(check({ a: '' }, { a: Fun }), false)
 
 // comparative types
 assert.equal(check({ a: 1 }, { a: GT(0, Int) }), true)
